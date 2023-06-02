@@ -31,12 +31,11 @@ public class RedisConfig {
 
   @Bean
   public RedisCacheManager cacheManager() {
-    RedisCacheConfiguration cacheConfig = myDefaultCacheConfig(Duration.ofMinutes(10)).disableCachingNullValues();
+    RedisCacheConfiguration cacheConfig = myDefaultCacheConfig(Duration.ofMinutes(1)).disableCachingNullValues();
 
     return RedisCacheManager.builder(redisConnectionFactory())
         .cacheDefaults(cacheConfig)
-        .withCacheConfiguration("tutorials", myDefaultCacheConfig(Duration.ofMinutes(5)))
-        .withCacheConfiguration("tutorial", myDefaultCacheConfig(Duration.ofMinutes(1)))
+        .withCacheConfiguration("transaction", myDefaultCacheConfig(Duration.ofMinutes(1)))
         .build();
   }
 
