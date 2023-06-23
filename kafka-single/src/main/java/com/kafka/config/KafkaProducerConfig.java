@@ -33,7 +33,6 @@ public class KafkaProducerConfig {
         configProps.put(ProducerConfig.RETRIES_CONFIG, 3);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
         // **___ configure the following three settings for SSL Encryption ___**
         //configProps.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
         //configProps.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/var/private/ssl/kafka.client.truststore.jks");
