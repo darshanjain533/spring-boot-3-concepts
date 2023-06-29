@@ -102,4 +102,15 @@ public class EmpService {
 			throw new CustomResourceNotFoundException("transaction data is not presenet.. Invalid data entered...");
 		}
 	}
+
+	@Cacheable("transaction")
+	public List<Employee> findEmployee(String data) {
+		log.info("find employee called...");
+		List<Employee> emp = repo.findByCustomerName(data);
+		return emp;
+	}
+
+	public Employee createEmployee(Employee emp) {
+		return repo.save(emp);
+	}
 }
