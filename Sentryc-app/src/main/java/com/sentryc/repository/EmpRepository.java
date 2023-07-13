@@ -13,6 +13,8 @@ public interface EmpRepository extends JpaRepository<Employee, Integer>{
 	
 	List<Employee> findByParentId(Integer parentId);
 	
+	List<Employee> findByCustomerName(String customerName);
+	
 	@Query("SELECT SUM(e.amount) FROM Employee e WHERE e.parentId=?1")
 	Double findsum(Integer parentId);
 

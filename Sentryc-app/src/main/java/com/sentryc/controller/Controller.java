@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,6 @@ public class Controller {
 	@GetMapping("/transaction/{id}")
 	public Employee getEmployee(@PathVariable Integer id) {
 		return service.fetchEmployess(id);
-		
 	}
 	
 	@GetMapping("/types/{type}")
@@ -54,5 +54,15 @@ public class Controller {
 	public SumDto getSum(@PathVariable Integer id) {
 		log.info("getSum controller called...");
 		return service.fetchSum(id);
+	}
+	
+	@GetMapping("/transaction/{data}")
+	public List<Employee> findEmployee(@PathVariable String data) {
+		return service.findEmployee(data);
+	}
+	
+	@PostMapping("/transaction/create")
+	public Employee createEmployee(@RequestBody Employee emp) {
+		return service.createEmployee(emp);
 	}
 }
