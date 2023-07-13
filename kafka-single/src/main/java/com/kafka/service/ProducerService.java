@@ -32,7 +32,7 @@ public class ProducerService<T> {
 
 
     public void sendInfoData(T data) {
-        logger.info("#### -> Publishing Info Data :: {}", data);
+        //logger.info("#### -> Publishing Info Data :: {}", data);
         kafkaTemplateInfo.send(infotopic, data);
     }
 }
