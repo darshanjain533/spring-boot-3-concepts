@@ -39,12 +39,13 @@ public class KafkaController {
 	}
 	
 	@GetMapping("/senddata")
-	public void sendData() {
-		int length = 100;
+	public void sendData(@RequestParam("counter") int counter, @RequestParam("length") int length  ) {
+		//int length = 100000;
+		//int counter = 75000;
 		Date dNow = new Date();
 		log.info("send data controller called at:::"+dNow);
-		for(int i=0; i<length; i++) {
-	        SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
+		for(int i=counter; i<length; i++) {
+	        SimpleDateFormat ft = new SimpleDateFormat("yyyyMMddhhmmssMs");
 	        String datetime = ft.format(dNow);
 			InformationData data = InformationData.builder()
 									._id(datetime+"-->"+i)
@@ -85,7 +86,7 @@ public class KafkaController {
 									.id_accounting(948753724)
 									.retry_sync_accounting(0)
 									.build();
-			log.info("### {} out {} data sent for ",i,length,datetime+"-->"+i);
+			log.info("### {} out {} data sent for {} ",i,length,datetime+"-->"+i);
 			producerService.sendInfoData(data);
 		}
 	}

@@ -20,9 +20,9 @@ public class ConsumerService {
     }
 
 
-    @KafkaListener(topics = {"${spring.kafka.info-topic}"}, containerFactory = "kafkaListenerJsonFactory", groupId = "group_id")
-    public void consumeSuperHero(InformationData data) {
-        logger.info("**** -> Consumed Information Data :: {}", data);
-    }
+//    @KafkaListener(topics = {"${spring.kafka.info-topic}"}, containerFactory = "kafkaListenerJsonFactory", groupId = "group_id")
+//    public void consumeSuperHero(InformationData data) {
+//        logger.info("**** -> Consumed Information Data :: {}", data);
+//    }
 
 }
